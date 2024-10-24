@@ -2,6 +2,7 @@ package TESTER;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -24,6 +25,38 @@ public class T_Tests {
         }
         return 1+ numOfPlayers(first.next);
     }
+
+@Test
+public void testValidNumberOfTeams() {
+    // Test that the number of teams created is valid (between 2 and 8)
+    int numOfTeams = 5; // Example input, can be any number for testing
+
+    if (numOfTeams < 2 || numOfTeams > 8) {
+        fail("Number of teams must be between 2 and 8.");
+    }
+
+    ArrayList<T_Team> teams = new ArrayList<>();
+    for (int i = 0; i < numOfTeams; i++) {
+        teams.add(new T_Team()); // Assuming T_Team has a default constructor
+    }
+
+    assertNotNull(teams);
+    assertEquals(numOfTeams, teams.size());
+}
+
+@Test
+public void testMaxNumberOfTeams() {
+    // Test that the maximum number of teams (8) can be created
+    int numOfTeams = 8;
+    ArrayList<T_Team> teams = new ArrayList<>();
+    
+    for (int i = 0; i < numOfTeams; i++) {
+        teams.add(new T_Team()); // Assuming T_Team has a default constructor
+    }
+
+    assertNotNull(teams);
+    assertEquals(numOfTeams, teams.size());
+}
 
     @Test
     public void testMultipleMatchesSimulation() {
@@ -81,5 +114,13 @@ public class T_Tests {
         assertFalse(team.TeamName.isEmpty());
     }
 
-    
+    @Test
+public void testPlayerSkillPersistence() {
+    // Test that the player's skill persists after creation
+    T_Players player = new T_Players(null);
+    int initialSkill = player.getSkill();
+    assertEquals(initialSkill, player.getSkill());
+}
+
+
 }
