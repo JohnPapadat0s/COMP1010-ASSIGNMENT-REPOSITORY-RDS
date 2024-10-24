@@ -23,6 +23,18 @@ public class T_Matches {
 
        
     }
+    public T_Matches(T_Team team1, T_Team team2){
+        ArrayList<T_Team> allTeams = new ArrayList<>(Arrays.asList(team1,team2));
+        System.out.println("___________________________________________________________________________________________");
+        System.out.println("The teams playing in todays matches are:");
+        for(int i = 0; i < allTeams.size(); i++){
+            
+            System.out.print("- " + allTeams.get(i).TeamName + " -");
+        }
+        System.out.println("");
+        System.out.println("___________________________________________________________________________________________");
+        simulatingMatches(allTeams);
+    }
 
 
 
