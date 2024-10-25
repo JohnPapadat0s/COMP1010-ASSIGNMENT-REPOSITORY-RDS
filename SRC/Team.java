@@ -1,17 +1,20 @@
 package SRC;
 
-import java.util.ArrayList; 
-
 
 public class Team {
+    Players Players;
+    String TeamName;
+
     Boolean hasBeenChosen = false;
     Boolean hasWon = false;
+    
+    
+    public Team(){
+        
+        for(int i = 0; i < 11; i++){
+            Players = new Players(Players);
+        } 
+        TeamName = TeamNameGenerator.getRandomTeamName();//Will be a random variable from the arraylist of names
 
-    ArrayList<Players>teamList = new ArrayList<Players>();
-    String teamName;
-
-    public Team(ArrayList<Players> playerList, String teamName, Boolean hasWon){
-        this.teamList = playerList;
-        this.teamName = teamName;
     }
 }

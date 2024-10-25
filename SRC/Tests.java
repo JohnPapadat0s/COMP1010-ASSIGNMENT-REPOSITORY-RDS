@@ -1,4 +1,4 @@
-package TESTER;
+package SRC;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.lang.reflect.Method;
@@ -6,20 +6,20 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class T_Tests {
+public class Tests {
     
 
     
     @Test
     public void testTeamCreation() {
         // Test that a team is created with 11 players
-        T_Team team = new T_Team();
+        Team team = new Team();
         assertNotNull(team);
         assertEquals(11, numOfPlayers(team.Players)); // Assuming players is a linked list of players
         assertNotNull(team.TeamName);
     }
     //creating the method to find how many players are in the linked list
-    public static int numOfPlayers(T_Players first){
+    public static int numOfPlayers(Players first){
         if(first == null){
             return 0;
         }
@@ -35,9 +35,9 @@ public class T_Tests {
             fail("Number of teams must be between 2 and 8.");
         }
 
-        ArrayList<T_Team> teams = new ArrayList<>();
+        ArrayList<Team> teams = new ArrayList<>();
         for (int i = 0; i < numOfTeams; i++) {
-            teams.add(new T_Team()); // Assuming T_Team has a default constructor
+            teams.add(new Team()); // Assuming T_Team has a default constructor
         }
 
         assertNotNull(teams);
@@ -48,10 +48,10 @@ public class T_Tests {
     public void testMaxNumberOfTeams() {
         // Test that the maximum number of teams (8) can be created
         int numOfTeams = 8;
-        ArrayList<T_Team> teams = new ArrayList<>();
+        ArrayList<Team> teams = new ArrayList<>();
         
         for (int i = 0; i < numOfTeams; i++) {
-            teams.add(new T_Team()); // Assuming T_Team has a default constructor
+            teams.add(new Team()); // Assuming T_Team has a default constructor
         }
 
         assertNotNull(teams);
@@ -61,11 +61,11 @@ public class T_Tests {
     @Test
     public void testMultipleMatchesSimulation() {
         // Test simulation of multiple matches
-        T_Team team1 = new T_Team();
-        T_Team team2 = new T_Team();
-        T_Team team3 = new T_Team();
-        T_Matches match1 = new T_Matches(team1, team2);
-        T_Matches match2 = new T_Matches(team2, team3);
+        Team team1 = new Team();
+        Team team2 = new Team();
+        Team team3 = new Team();
+        Matches match1 = new Matches(team1, team2);
+        Matches match2 = new Matches(team2, team3);
         assertNotNull(match1);
         assertNotNull(match2);
     }
@@ -73,7 +73,7 @@ public class T_Tests {
     public void testPlayerSkillRange() {
         // Check that player skills are within a valid range
         for (int i = 0; i < 11; i++) {
-            T_Players player = new T_Players(null);
+            Players player = new Players(null);
             assertTrue(player.getSkill() >= 0 && player.getSkill() <= 100); // Assuming skill range
         }
     }
@@ -81,8 +81,8 @@ public class T_Tests {
     @Test
     public void testTeamPlayersInitialization() {
         // Ensure that all players in a team are initialized
-        T_Team team = new T_Team();
-        T_Players currentPlayer = team.Players;
+        Team team = new Team();
+        Players currentPlayer = team.Players;
         for (int i = 0; i < 11; i++) {
             assertNotNull(currentPlayer);
             currentPlayer = currentPlayer.next;
@@ -93,7 +93,7 @@ public class T_Tests {
     @Test
     public void testPlayerCreation() {
         // Test that players are assigned names and skills
-        T_Players player = new T_Players(null);
+        Players player = new Players(null);
         assertNotNull(player.getName());
         assertTrue(player.getSkill() >= 0); // Assuming skill is a non-negative integer
     }
@@ -101,23 +101,23 @@ public class T_Tests {
     @Test
     public void testMatchSimulation() {
         // Test a match simulation between two teams
-        T_Team team1 = new T_Team();
-        T_Team team2 = new T_Team();
-        T_Matches match = new T_Matches(team1, team2);
+        Team team1 = new Team();
+        Team team2 = new Team();
+        Matches match = new Matches(team1, team2);
         assertNotNull(match); //Making sure the parameterised constructor can take two team objects correctly
     }
 
     @Test
     public void testTeamNameNotEmpty() {
         // Ensure that a team name is not empty
-        T_Team team = new T_Team();
+        Team team = new Team();
         assertFalse(team.TeamName.isEmpty());
     }
 
     @Test
 public void testPlayerSkillPersistence() {
     // Test that the player's skill persists after creation
-    T_Players player = new T_Players(null);
+    Players player = new Players(null);
     int initialSkill = player.getSkill();
     assertEquals(initialSkill, player.getSkill());
 }

@@ -1,7 +1,7 @@
-package TESTER;
+package SRC;
 import java.util.*;
 //Making a seperate class is important here to make sure team names are not duplicated. 
-public class T_TeamNameGenerator {
+public class TeamNameGenerator {
     //This is the Arraylist of all possible names that can be chosen from
     public static  ArrayList<String> Teamnames = new ArrayList<>(Arrays.asList(
         "The University of Sydney", "The University of Queensland", "Griffith University", "Macquarie University", "The University of Western Australia", 

@@ -1,13 +1,13 @@
-package TESTER;
+package SRC;
 import java.util.*;
 
 
-public class T_Matches {
-    ArrayList<T_Team> allTeams;
+public class Matches {
+    ArrayList<Team> allTeams;
 
 
 
-    public T_Matches(ArrayList<T_Team> allTeams){
+    public Matches(ArrayList<Team> allTeams){
         this.allTeams = allTeams;
         
         
@@ -23,8 +23,8 @@ public class T_Matches {
 
        
     }
-    public T_Matches(T_Team team1, T_Team team2){
-        ArrayList<T_Team> allTeams = new ArrayList<>(Arrays.asList(team1,team2));
+    public Matches(Team team1, Team team2){
+        ArrayList<Team> allTeams = new ArrayList<>(Arrays.asList(team1,team2));
         System.out.println("___________________________________________________________________________________________");
         System.out.println("The teams playing in todays matches are:");
         for(int i = 0; i < allTeams.size(); i++){
@@ -39,9 +39,9 @@ public class T_Matches {
 
 
 
-    public static void simulatingMatches(ArrayList<T_Team> allTeams){
+    public static void simulatingMatches(ArrayList<Team> allTeams){
         int round = 1;
-        ArrayList<T_Team> teamsToRemove = new ArrayList<>();
+        ArrayList<Team> teamsToRemove = new ArrayList<>();
         while (allTeams.size() > 1) {
             System.out.println("");
             System.out.println("START ROUND "+ round + ": ");
@@ -94,7 +94,7 @@ public class T_Matches {
 
 
 // The final winner method. Prints out the final winners, team info, etc
-    public static void finalWinner(ArrayList<T_Team> allTeams) {
+    public static void finalWinner(ArrayList<Team> allTeams) {
         System.out.println("");
         System.out.println("___________________________________________________________________________________________");
         System.out.println("");
@@ -103,7 +103,7 @@ public class T_Matches {
         System.out.println("___________________________________________________________________________________________");
         System.out.println("Here's their lineup for todays macthes: ");
         System.out.println("");
-        for(T_Players temp = allTeams.get(0).Players; temp != null; temp = temp.next){
+        for(Players temp = allTeams.get(0).Players; temp != null; temp = temp.next){
             System.out.println("");
             System.out.println("Player Skill: " + temp.playerSkill + "     Name: " +temp.playerName);
             System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
@@ -111,7 +111,7 @@ public class T_Matches {
         
     }
 // Determines the winner between two passed teams.
-    public static void determineWinner(T_Team team1, T_Team team2) {
+    public static void determineWinner(Team team1, Team team2) {
         int teamSkillAVG1 = getTeamTotal(team1);
         int teamSkillAVG2 = getTeamTotal(team2);
 
@@ -125,10 +125,10 @@ public class T_Matches {
 
 
 // Uses two methods to sum the player score and return them based on the team.
-    public static int getTeamTotal(T_Team Test){
+    public static int getTeamTotal(Team Test){
         return sumScores(Test.Players);
     }
-    public static int sumScores(T_Players first){
+    public static int sumScores(Players first){
         if(first == null){
             return 0;
         }
