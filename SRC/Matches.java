@@ -44,6 +44,7 @@ public class Matches {
         ArrayList<Team> teamsToRemove = new ArrayList<>();
         while (allTeams.size() > 1) {
             System.out.println("");
+            System.out.println("");
             System.out.println("START ROUND "+ round + ": ");
 
             //set has won to false for all teams in the array list
@@ -76,21 +77,24 @@ public class Matches {
             }
             allTeams.removeAll(teamsToRemove);
             
-            
-
             //Print the winners
             for(int i = 0; i < allTeams.size(); i++){
                 System.out.println("");
-                System.out.println("Round " + round + " winner: " + allTeams.get(i).TeamName + " " + getTeamTotal(allTeams.get(i)));
+                System.out.println("Round " + round + " winner: " + allTeams.get(i).TeamName);
 
             }
+            /*This method shuffles the arrayList of the teams left in the tournament.
+             * This is done to make it more fair incase of an odd number of teams.
+             * e.g. Previously if 5 teams are in the tournament, the last team in the array skips strait to the finals.
+             *      Now, the two teams who will skip games are random.
+             */
+            Collections.shuffle(allTeams);
 
             round = round + 1;
 
         }
         finalWinner(allTeams);
     }
-
 
 
 // The final winner method. Prints out the final winners, team info, etc
