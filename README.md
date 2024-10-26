@@ -45,7 +45,7 @@ Task Allocation
 - The person with the least experience in java programming, Siddharth Thirumalai Kumar was left to do the documentation of the project and the UML diagrams. All members of the group did the comments of the project, to make it easier to read and understand. 
 
 
-How To Run Program 
+How To Run the Program 
 
 - Once you run the code by clicking on the triangle button on the top right in vs code, the program will ask the user to input the number of teams partaking in the tournament and the user must type in a number between 2 and 8 inclusive. 
 
