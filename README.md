@@ -40,6 +40,6 @@ Task Allocation
 
 How To Run the Program 
 
-- Once you run the code by clicking on the triangle button on the top right in vs code, the program will ask the user to input the number of teams partaking in the tournament and the user must type in a number between 2 and 8 inclusive. 
+- Once you run the code by clicking on the triangle button on the top right in vs code in the Client.java file, the program will ask the user to input the number of teams partaking in the tournament and the user must type in a number between 2 and 8 inclusive. 
 
 
