@@ -14,32 +14,25 @@ public class Client {
         while (!isValid) {
             try {
                 System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-                System.out.println("HOW MANY TEAM SHOULD PARTICIPATE IN THE TOURNAMENT?(min 2, max 8): ");
+                System.out.println("HOW MANY TEAMS SHOULD PARTICIPATE IN THE TOURNAMENT? (min 2, max 8): ");
+                
                 numOfTeams = chooseTeams.nextInt();
-                // Checks to make sure the integer imputed is within the valid range.
-                if (numOfTeams <= 0) {
-                    System.out.println("Please enter a positive integer!");
-                    numOfTeams = chooseTeams.nextInt();
-                }
-
-                else if (numOfTeams < 2) {
+                
+                // Checks to make sure the integer entered is within the valid range.
+                if (numOfTeams >= 2 && numOfTeams <= 8) {
+                    isValid = true;  // Valid input, so we can exit the loop
+                } else if (numOfTeams < 2) {
                     System.out.println("At least 2 teams must participate!");
-                    numOfTeams = chooseTeams.nextInt();
-                }
-
-                else if (numOfTeams > 8) {
+                } else {
                     System.out.println("A maximum of 8 teams can participate!");
-                    numOfTeams = chooseTeams.nextInt();
                 }
-                isValid = true;
-            }
-            // Catches the error where a user may input a value that is not an integer.
-            catch (InputMismatchException e) {
+                
+            } catch (InputMismatchException e) {
                 System.out.println("Input is invalid, please enter an integer!");
-                chooseTeams.next();
+                chooseTeams.next();  // Clear the invalid input
             }
-
         }
+        
         chooseTeams.close();
 
         // Creating the teams based on what the user inputed and stores them in an
